@@ -1,0 +1,7 @@
+dist
+node_modules
+package-lock.json
+
+# Generated dataset — written minified by scripts/build-data.mjs and refreshed
+# by CI. Keep prettier out so it doesn't bloat it / cause noisy diffs.
+public/data/cves.json
