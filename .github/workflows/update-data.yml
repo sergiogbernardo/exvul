@@ -1,0 +1,43 @@
+name: Update CVE/KEV data
+
+# Regenerates public/data/cves.json from NVD + CISA KEV and commits any change.
+# The commit pushes to main, which triggers the Deploy workflow.
+
+on:
+  schedule:
+    # Daily at 06:30 UTC. NVD recommends off-peak hours for bulk pulls.
+    - cron: '30 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Build dataset
+        env:
+          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+        run: npm run data
+      - name: Commit if changed
+        run: |
+          if [[ -n "$(git status --porcelain public/data/cves.json)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add public/data/cves.json
+            git commit -m "chore: refresh CVE/KEV dataset"
+            git push
+          else
+            echo "No dataset changes."
+          fi

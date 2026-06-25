@@ -1,0 +1,16 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+
+# Editor / tooling
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.tsbuildinfo
+
+# Env
+.env
+.env.*
+!.env.example

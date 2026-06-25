@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth bg-black;
+  }
+
+  body {
+    @apply bg-black font-sans text-slate-100 antialiased;
+  }
+
+  ::selection {
+    @apply bg-emerald-400 text-black;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #334155 transparent;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-2xl border border-emerald-500/15 bg-black/70 p-5 backdrop-blur-md;
+  }
+
+  .panel-title {
+    @apply font-display text-sm font-semibold uppercase tracking-wider text-emerald-300/80;
+  }
+}
