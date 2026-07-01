@@ -4,10 +4,10 @@ Browse recent high/critical **CVEs** and CISA's **KEV** catalog (known
 exploited vulnerabilities), each mapped to its **CWE** weaknesses — **entirely
 in the browser**. There is no backend and nothing leaves your machine.
 
-Part of the [project hub](https://sergiogbernardo.github.io/), alongside
-[Threatvg](https://sergiogbernardo.github.io/Threatvg/),
-[Scanvg](https://sergiogbernardo.github.io/Scanvg/) and
-[Inspectorvg](https://sergiogbernardo.github.io/Inspectorvg/).
+Part of the [project hub](https://sabion.io/), alongside
+[Threatvg](https://sabion.io/Threatvg/),
+[Scanvg](https://sabion.io/Scanvg/) and
+[Inspectorvg](https://sabion.io/Inspectorvg/).
 
 ## What it does
 
